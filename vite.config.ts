@@ -7,5 +7,8 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     setupFiles: ['./vitest-setup.ts'],
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+    },
   },
 })
