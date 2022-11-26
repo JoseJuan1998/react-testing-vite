@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from '@testing-library/react'
-import { describe, it, afterEach, expect } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 import Application from '.'
 
 /*
@@ -15,8 +15,6 @@ import Application from '.'
 */
 
 describe('Application', () => {
-  afterEach(cleanup)
-
   it('renders correctly the Application component', () => {
     render(<Application />)
   })

@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from '@testing-library/react'
-import { describe, afterEach, it, expect, assert } from 'vitest'
+import { render, screen, logRoles } from '@testing-library/react'
+import { describe, it, expect, assert } from 'vitest'
 import Skills from '.'
 
 const skills = [
@@ -11,8 +11,6 @@ const skills = [
 ]
 
 describe('Skills', () => {
-  afterEach(cleanup)
-
   it('renders the component correctly no props', () => {
     render(<Skills />)
 
@@ -64,13 +62,17 @@ describe('Skills', () => {
   })
 
   it('renders start button when logged in', async () => {
-    render(<Skills skills={skills} />)
+    const { container } = render(<Skills skills={skills} />)
+
+    // logRoles(container) // Debugging
 
     const btnStart = await screen.findByRole(
       'button',
       { name: 'Start learning' },
       { timeout: 2000 }
     )
+
+    // screen.debug() // Debugging
 
     expect(btnStart).toBeInTheDocument()
   })

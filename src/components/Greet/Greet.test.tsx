@@ -1,10 +1,8 @@
-import { cleanup, render, screen } from '@testing-library/react'
-import { afterEach, describe, it, expect } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 import Greet from '.'
 
 describe('Greet', () => {
-  afterEach(cleanup)
-
   it('renders Greet component correctly', () => {
     render(<Greet />)
   })
@@ -17,7 +15,7 @@ describe('Greet', () => {
   })
 
   it('should return the word Hello, and if a name is passed, must follow with the name', async () => {
-    render(<Greet name='Juan' />)
+    render(<Greet name="Juan" />)
 
     const greet = await screen.findByText(/Hello/)
     const name = greet.textContent?.split(' ')[1]
