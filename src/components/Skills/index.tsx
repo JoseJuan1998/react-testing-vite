@@ -7,7 +7,7 @@ export default function Skills({ skills = [] }: SkillsProps) {
   useEffect(() => {
     setTimeout(() => {
       setIsLoggedIn(true)
-    }, 500)
+    }, 2000)
   }, [])
 
   if (skills.length === 0) return <h1>Empty</h1>

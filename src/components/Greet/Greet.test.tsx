@@ -7,17 +7,17 @@ describe('Greet', () => {
     render(<Greet />)
   })
 
-  it('renders Greet component and the text Greet', async () => {
+  it('renders Greet component and the text Greet', () => {
     render(<Greet />)
 
-    const text = await screen.findByText(/Greet/)
+    const text = screen.getByText(/Greet/)
     expect(text).toBeInTheDocument()
   })
 
   it('should return the word Hello, and if a name is passed, must follow with the name', async () => {
     render(<Greet name="Juan" />)
 
-    const greet = await screen.findByText(/Hello/)
+    const greet = await screen.findByText(/Hello Juan/)
     const name = greet.textContent?.split(' ')[1]
 
     expect(greet).toBeInTheDocument()
